@@ -1,0 +1,5 @@
+Время вызова функции - 2021-06-20 11:59:41.664978
+Имя функции - hash_generator
+Аргументы функции - (('countries.json',), {})
+Результат функции - <generator object hash_generator at 0x000001A97F480EB0>
+Путь до логов - C:\Users\conda\PycharmProjects\decorators\log.txt
