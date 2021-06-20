@@ -2,6 +2,7 @@ from datetime import datetime
 import json
 import hashlib
 import os
+from functools import wraps
 
 
 class WikiIter:
@@ -46,6 +47,7 @@ def logger(func):
 
 def logger_path(path):
     def logger1(func):
+        @wraps(func)
         def wrap_func(*args, **kwargs):
             with open(path, 'w', encoding='UTF-8') as f:
                 f.write(f'Время вызова функции - {datetime.now()}\n'
@@ -53,7 +55,7 @@ def logger_path(path):
                         f'Аргументы функции - {args, kwargs}\n'
                         f'Результат функции - {func(*args, **kwargs)}\n'
                         f'Путь до логов - {os.path.abspath(path)}')
-
+                return func(*args, **kwargs)
         return wrap_func
 
     return logger1
