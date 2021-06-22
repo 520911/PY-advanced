@@ -36,12 +36,13 @@ with open('country_link.txt', 'w', encoding='UTF-8') as f:
 
 def logger(func):
     def wrap_func(*args, **kwargs):
+        result = func(*args, **kwargs)
         with open('log.txt', 'w', encoding='UTF-8') as f:
             f.write(f'Время вызова функции - {datetime.now()}\n'
                     f'Имя функции - {func.__name__}\n'
                     f'Аргументы функции - {args, kwargs}\n'
-                    f'Результат функции - {func(*args, **kwargs)}')
-
+                    f'Результат функции - {result}')
+        return result
     return wrap_func
 
 
@@ -49,15 +50,15 @@ def logger_path(path):
     def logger1(func):
         @wraps(func)
         def wrap_func(*args, **kwargs):
+            result = func(*args, **kwargs)
             with open(path, 'w', encoding='UTF-8') as f:
                 f.write(f'Время вызова функции - {datetime.now()}\n'
                         f'Имя функции - {func.__name__}\n'
                         f'Аргументы функции - {args, kwargs}\n'
-                        f'Результат функции - {func(*args, **kwargs)}\n'
+                        f'Результат функции - {result}\n'
                         f'Путь до логов - {os.path.abspath(path)}')
-                
+            return result
         return wrap_func
-
     return logger1
 
 
