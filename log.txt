@@ -1,0 +1,5 @@
+Время вызова функции - 2021-06-22 09:22:28.393565
+Имя функции - hash_generator
+Аргументы функции - (('countries.json',), {})
+Результат функции - <generator object hash_generator at 0x00000220B1D30740>
+Путь до логов - C:\Users\hiddenpool\PycharmProjects\test\log.txt
