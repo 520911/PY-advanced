@@ -55,7 +55,7 @@ def logger_path(path):
                         f'Аргументы функции - {args, kwargs}\n'
                         f'Результат функции - {func(*args, **kwargs)}\n'
                         f'Путь до логов - {os.path.abspath(path)}')
-                return func(*args, **kwargs)
+                
         return wrap_func
 
     return logger1
