@@ -14,12 +14,12 @@ class TestYaAuth(unittest.TestCase):
     def test_login_in_ya(self):
         elem = self.driver.find_element_by_name('login')
         sleep(2)
-        elem.send_keys('zmremont')
+        elem.send_keys('')
         elem.send_keys(Keys.RETURN)
         assert "No results found." not in self.driver.page_source
         sleep(2)
         elem = self.driver.find_element_by_name('passwd')
-        elem.send_keys('Denis520911$$')
+        elem.send_keys('')
         elem.send_keys(Keys.RETURN)
         sleep(2)
 
